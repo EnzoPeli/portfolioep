@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const htmlPath = path.join("public", "cv", "Enzo-Pelizzari-CV.html");
+const htmlPath = path.join("cv-source", "Enzo-Pelizzari-CV.html");
 const photoPath = path.join("public", "a.png");
 const html = fs.readFileSync(htmlPath, "utf8");
 const dataUri = `src="data:image/png;base64,${fs.readFileSync(photoPath).toString("base64")}"`;

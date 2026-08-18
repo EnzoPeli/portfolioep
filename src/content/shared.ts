@@ -13,8 +13,8 @@ export const site = {
   github: "https://github.com/EnzoPeli",
   linkedin: "https://www.linkedin.com/in/enzo-pelizzari-622876145/",
   cv: {
-    href: "/cv/Enzo-Pelizzari-CV.html",
-    filename: "Enzo-Pelizzari-CV.html",
+    href: "/cv/Enzo-Pelizzari-CV.pdf",
+    filename: "Enzo-Pelizzari-CV.pdf",
   },
   votingRepo: "https://github.com/EnzoPeli/voting-app-devops-2025",
   seo: {
