@@ -41,9 +41,10 @@ export const es: Dictionary = {
   experience: {
     kicker: "Experiencia",
     heading: "De la entrega de producto a la propiedad técnica.",
-    intro: "En net2phone desde abril de 2019, en remoto. Promovido a Technical Lead en abril de 2025.",
+    intro:
+      "Comencé mi carrera en Integra CCS en 2019 y me incorporé a net2phone en 2021. En abril de 2025 fui promovido a Technical Lead, después de asumir progresivamente el ownership de la entrega y dirección técnica de uCRM.",
     company: "net2phone",
-    dates: "Abril 2019 — presente",
+    dates: "2021 — presente",
     mode: "Remoto",
     summary:
       "Responsable técnico de uCRM en arquitectura, integraciones, infraestructura cloud, delivery y dirección de equipo.",
@@ -51,8 +52,20 @@ export const es: Dictionary = {
     path: [
       {
         stage: "01",
+        title: "Product Analyst",
+        company: "Integra CCS",
+        period: "2019 — 2021",
+        current: false,
+        bullets: [
+          "Trabajé directamente con clientes para relevar requerimientos y definir integraciones de contact center.",
+          "Di soporte a operaciones de contact center, traduciendo necesidades de negocio en requerimientos de producto y técnicos.",
+        ],
+      },
+      {
+        stage: "02",
         title: "Software Developer",
-        period: "Abril 2019 — abril 2025",
+        company: "net2phone",
+        period: "2021 — abril 2025",
         current: false,
         bullets: [
           "Implementé funcionalidades de punta a punta a partir de requerimientos, con foco en testing y documentación.",
@@ -61,8 +74,9 @@ export const es: Dictionary = {
         ],
       },
       {
-        stage: "02",
+        stage: "03",
         title: "Technical Lead",
+        company: "net2phone",
         period: "Abril 2025 — presente",
         current: true,
         bullets: [

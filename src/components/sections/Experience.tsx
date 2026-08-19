@@ -64,7 +64,7 @@ export function Experience() {
 
           <ol
             ref={timelineRef}
-            className="mt-px grid gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline lg:grid-cols-2"
+            className="mt-px grid gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline lg:grid-cols-3"
           >
             {experience.path.map((step) => (
               <li key={step.stage} className="bg-canvas p-6">
@@ -77,6 +77,7 @@ export function Experience() {
                   ) : null}
                 </div>
                 <h3 className="display-sm mt-4">{step.title}</h3>
+                <p className="caption mt-1">{step.company}</p>
                 <p className="label-caps mt-3 text-muted">{step.period}</p>
                 <ul className="mt-4 space-y-2">
                   {step.bullets.map((bullet) => (

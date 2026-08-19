@@ -54,6 +54,7 @@ export type Dictionary = {
     path: {
       stage: string;
       title: string;
+      company: string;
       period: string;
       current: boolean;
       bullets: string[];
