@@ -1,12 +1,12 @@
 export const site = {
   name: "Enzo Pelizzari",
   shortName: "EP",
-  title: "Technical Lead & Full Stack Engineer",
+  title: "Technical Lead · Full Stack Engineering",
   photo: {
     src: "/a.png",
     alt: {
-      es: "Retrato de Enzo Pelizzari, Technical Lead y Full Stack Engineer",
-      en: "Portrait of Enzo Pelizzari, Technical Lead and Full Stack Engineer",
+      es: "Retrato de Enzo Pelizzari, Technical Lead",
+      en: "Portrait of Enzo Pelizzari, Technical Lead",
     },
   },
   email: "enzo_peli@hotmail.com",
@@ -18,10 +18,10 @@ export const site = {
   },
   votingRepo: "https://github.com/EnzoPeli/voting-app-devops-2025",
   seo: {
-    title: "Enzo Pelizzari — Technical Lead & Full Stack Engineer",
+    title: "Enzo Pelizzari — Technical Lead · Full Stack Engineering",
     description: {
-      es: "Technical Lead y Full Stack Engineer con más de 7 años de experiencia construyendo sistemas full stack, soluciones cloud, plataformas SaaS e integraciones.",
-      en: "Technical Lead and Full Stack Engineer with 7+ years of experience building full stack systems, cloud solutions, SaaS platforms and integrations.",
+      es: "Technical Lead con más de 7 años de experiencia construyendo y evolucionando productos full stack, infraestructura cloud e integraciones, con foco en liderazgo técnico y de producto.",
+      en: "Technical Lead with 7+ years of experience building and evolving full-stack products, cloud infrastructure, and integrations, with a focus on product and engineering leadership.",
     },
   },
 } as const;

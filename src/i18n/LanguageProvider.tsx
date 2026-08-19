@@ -21,11 +21,11 @@ function isLocale(value: string | null): value is Locale {
 
 function getSnapshot(): Locale {
   const saved = window.localStorage.getItem(STORAGE_KEY);
-  return isLocale(saved) ? saved : "es";
+  return isLocale(saved) ? saved : "en";
 }
 
 function getServerSnapshot(): Locale {
-  return "es";
+  return "en";
 }
 
 function subscribe(onStoreChange: () => void) {

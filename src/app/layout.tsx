@@ -14,30 +14,30 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: site.seo.title,
-  description: site.seo.description.es,
+  description: site.seo.description.en,
   applicationName: site.name,
   authors: [{ name: site.name }],
   creator: site.name,
   keywords: [
     "Technical Lead",
-    "Full Stack Engineer",
+    "Engineering Lead",
+    "Full Stack Engineering",
     "Cloud",
     "SaaS",
-    "Integraciones",
     "Enzo Pelizzari",
   ],
   openGraph: {
     type: "website",
-    locale: "es_UY",
-    alternateLocale: ["en_US"],
+    locale: "en_US",
+    alternateLocale: ["es_UY"],
     title: site.seo.title,
-    description: site.seo.description.es,
+    description: site.seo.description.en,
     siteName: site.name,
   },
   twitter: {
     card: "summary_large_image",
     title: site.seo.title,
-    description: site.seo.description.es,
+    description: site.seo.description.en,
   },
   robots: {
     index: true,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-canvas font-sans text-body">

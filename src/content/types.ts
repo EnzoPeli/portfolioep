@@ -5,12 +5,6 @@ export type NavItem = {
   href: string;
 };
 
-export type Stat = {
-  index: string;
-  value: string;
-  label: string;
-};
-
 export type Project = {
   id: string;
   tier: 1 | 2 | 3;
@@ -36,43 +30,34 @@ export type Dictionary = {
   langAria: string;
   hero: {
     kicker: string;
+    heading: string;
     tagline: string;
     primaryCta: string;
     secondaryCta: string;
     cvCta: string;
-    stats: Stat[];
   };
   about: {
     kicker: string;
     heading: string;
     body: string[];
+    principles: { title: string; text: string }[];
   };
   experience: {
     kicker: string;
     heading: string;
     intro: string;
-    currentRole: string;
-    previousRole: string;
     company: string;
     dates: string;
-    promotion: string;
     mode: string;
     summary: string;
-    asDeveloper: { heading: string; text: string };
+    currentTag: string;
     path: {
       stage: string;
       title: string;
       period: string;
       current: boolean;
-      summary: string;
+      bullets: string[];
     }[];
-  };
-  leadership: {
-    kicker: string;
-    heading: string;
-    intro: string;
-    team: { heading: string; text: string };
-    chips: string[];
   };
   stack: {
     kicker: string;

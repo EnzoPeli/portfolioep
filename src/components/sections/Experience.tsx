@@ -48,20 +48,12 @@ export function Experience() {
           <article className="mt-12 overflow-hidden rounded-[10px] border border-hairline">
             <div className="grid lg:grid-cols-[200px_minmax(0,1fr)]">
               <div className="border-b border-hairline bg-surface-soft p-6 lg:border-b-0 lg:border-r">
-                <p className="label-caps text-mint">{experience.currentRole}</p>
-                <p className="mt-4 text-[1.15rem] font-semibold text-ink">
-                  {experience.company}
-                </p>
-                <p className="caption mt-3">{experience.dates}</p>
+                <p className="text-[1.15rem] font-semibold text-ink">{experience.company}</p>
+                <p className="label-caps mt-3 text-mint">{experience.dates}</p>
                 <p className="caption mt-1">{experience.mode}</p>
-                <p className="caption mt-4 text-mint">{experience.promotion}</p>
               </div>
               <div className="p-6 md:p-8">
                 <p className="body-md max-w-3xl text-body-strong">{experience.summary}</p>
-                <p className="label-caps mt-8 text-muted">
-                  {experience.asDeveloper.heading}
-                </p>
-                <p className="body-sm mt-3 max-w-2xl">{experience.asDeveloper.text}</p>
               </div>
             </div>
           </article>
@@ -72,17 +64,27 @@ export function Experience() {
 
           <ol
             ref={timelineRef}
-            className="mt-px grid gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline lg:grid-cols-3"
+            className="mt-px grid gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline lg:grid-cols-2"
           >
             {experience.path.map((step) => (
-              <li
-                key={step.stage}
-                className={`p-6 ${step.current ? "bg-mint-dim/40" : "bg-canvas"}`}
-              >
-                <NeonIndex className="caption font-mono text-mint">{step.stage}</NeonIndex>
+              <li key={step.stage} className="bg-canvas p-6">
+                <div className="flex items-center justify-between gap-3">
+                  <NeonIndex className="caption font-mono text-mint">{step.stage}</NeonIndex>
+                  {step.current ? (
+                    <span className="label-caps rounded-full border border-mint/50 px-2 py-0.5 text-[10px] text-mint">
+                      {experience.currentTag}
+                    </span>
+                  ) : null}
+                </div>
                 <h3 className="display-sm mt-4">{step.title}</h3>
                 <p className="label-caps mt-3 text-muted">{step.period}</p>
-                <p className="body-sm mt-4">{step.summary}</p>
+                <ul className="mt-4 space-y-2">
+                  {step.bullets.map((bullet) => (
+                    <li key={bullet} className="body-sm">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ol>

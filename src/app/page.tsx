@@ -4,7 +4,6 @@ import { Education } from "@/components/sections/Education";
 import { Experience } from "@/components/sections/Experience";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { Hero } from "@/components/sections/Hero";
-import { Leadership } from "@/components/sections/Leadership";
 import { TechStack } from "@/components/sections/TechStack";
 import { site } from "@/content/shared";
 
@@ -13,7 +12,7 @@ const personJsonLd = {
   "@type": "Person",
   name: site.name,
   jobTitle: site.title,
-  description: site.seo.description.es,
+  description: site.seo.description.en,
   image: site.photo.src,
   email: site.email,
   url: site.linkedin,
@@ -28,10 +27,9 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
       <Hero />
-      <About />
-      <Experience />
-      <Leadership />
       <FeaturedProjects />
+      <Experience />
+      <About />
       <TechStack />
       <Education />
       <Contact />

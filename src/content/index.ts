@@ -9,17 +9,17 @@ export const dictionaries = {
 
 export const navHrefs = [
   { id: "home", href: "#top" },
-  { id: "about", href: "#about" },
-  { id: "experience", href: "#experience" },
   { id: "work", href: "#work" },
+  { id: "experience", href: "#experience" },
+  { id: "about", href: "#about" },
   { id: "stack", href: "#stack" },
   { id: "contact", href: "#contact" },
 ] as const;
 
 export function getNav(locale: Locale) {
   const labels = {
-    es: ["Inicio", "Sobre mí", "Experiencia", "Proyectos", "Stack", "Contacto"],
-    en: ["Home", "About", "Experience", "Work", "Stack", "Contact"],
+    es: ["Inicio", "Proyectos", "Experiencia", "Sobre mí", "Stack", "Contacto"],
+    en: ["Home", "Work", "Experience", "About", "Stack", "Contact"],
   }[locale];
 
   return navHrefs.map((item, index) => ({

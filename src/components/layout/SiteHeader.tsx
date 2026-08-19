@@ -30,7 +30,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[13px] text-body transition-colors hover:text-mint"
+              className="text-[14px] text-body transition-colors hover:text-mint"
             >
               {item.label}
             </a>
@@ -41,13 +41,13 @@ export function SiteHeader() {
           <a
             href={site.cv.href}
             download={site.cv.filename}
-            className="hidden text-[13px] text-muted transition-colors hover:text-mint sm:inline"
+            className="hidden text-[14px] text-muted transition-colors hover:text-mint sm:inline"
           >
             {t.hero.cvCta}
           </a>
           <a
             href={site.github}
-            className="hidden text-[13px] text-muted transition-colors hover:text-mint sm:inline"
+            className="hidden text-[14px] text-muted transition-colors hover:text-mint sm:inline"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -55,7 +55,7 @@ export function SiteHeader() {
           </a>
           <a
             href={site.linkedin}
-            className="hidden text-[13px] text-muted transition-colors hover:text-mint sm:inline"
+            className="hidden text-[14px] text-muted transition-colors hover:text-mint sm:inline"
             target="_blank"
             rel="noopener noreferrer"
           >

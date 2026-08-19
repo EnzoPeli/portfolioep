@@ -63,14 +63,17 @@ export function FeaturedProjects() {
         </Reveal>
 
         <Reveal>
-          <article className="mt-12 overflow-hidden rounded-[10px] border border-hairline">
-            <div className="p-6 md:p-8">
+          <article className="mt-12 overflow-hidden rounded-[10px] border border-mint/25 bg-surface-card">
+            <div className="p-6 md:p-10">
               <p className="label-caps text-mint">{featured.kind}</p>
-              <h3 className="display-md mt-4">{featured.name}</h3>
+              <h3 className="display-lg mt-4">{featured.name}</h3>
               {featured.company ? (
                 <p className="caption mt-2">{featured.company}</p>
               ) : null}
               <p className="body-md mt-5 max-w-3xl text-body-strong">{featured.summary}</p>
+              {featured.role ? (
+                <p className="body-sm mt-4 max-w-3xl text-muted">{featured.role}</p>
+              ) : null}
               {featured.responsibilities.length > 0 ? (
                 <ul className="mt-6 flex flex-wrap gap-2">
                   {featured.responsibilities.map((item) => (
@@ -83,28 +86,9 @@ export function FeaturedProjects() {
                   ))}
                 </ul>
               ) : null}
-            </div>
-          </article>
-        </Reveal>
-
-        <Reveal>
-          <article className="mt-6 overflow-hidden rounded-[10px] border border-hairline bg-canvas">
-            <div className="p-6 md:p-8">
-              <div className="flex flex-wrap items-center gap-3">
-                <p className="label-caps text-mint">{technical.kind}</p>
-                {technical.company ? (
-                  <p className="caption">{technical.company}</p>
-                ) : null}
-              </div>
-              <h3 className="display-md mt-4">{technical.name}</h3>
-              <p className="body-md mt-4 max-w-3xl text-body-strong">{technical.summary}</p>
-              {technical.role ? (
-                <p className="body-sm mt-4 max-w-3xl text-muted">{technical.role}</p>
-              ) : null}
-
-              {technical.architectureNotes.length > 0 ? (
-                <div className="mt-8 grid gap-3 md:grid-cols-2">
-                  {technical.architectureNotes.map((note) => (
+              {featured.architectureNotes.length > 0 ? (
+                <div className="mt-6 grid gap-3 md:grid-cols-2">
+                  {featured.architectureNotes.map((note) => (
                     <p
                       key={note}
                       className="rounded-[8px] border border-hairline bg-surface-soft p-4 body-sm"
@@ -114,11 +98,39 @@ export function FeaturedProjects() {
                   ))}
                 </div>
               ) : null}
+            </div>
+          </article>
+        </Reveal>
+
+        <Reveal>
+          <article className="mt-6 overflow-hidden rounded-[10px] border border-hairline bg-canvas">
+            <div className="p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="label-caps text-mint">{technical.kind}</p>
+                {technical.company ? (
+                  <p className="caption">{technical.company}</p>
+                ) : null}
+              </div>
+              <h3 className="title-lg mt-3">{technical.name}</h3>
+              <p className="body-sm mt-3 max-w-3xl">{technical.summary}</p>
+              {technical.role ? (
+                <p className="caption mt-3 max-w-3xl">{technical.role}</p>
+              ) : null}
+
+              {technical.architectureNotes.length > 0 ? (
+                <ul className="mt-5 space-y-2">
+                  {technical.architectureNotes.map((note) => (
+                    <li key={note} className="body-sm">
+                      {note}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
 
               {technical.tradeoffs.length > 0 ? (
-                <div className="mt-6">
+                <div className="mt-5">
                   <p className="label-caps text-muted">{projects.tradeoffsLabel}</p>
-                  <ul className="mt-3 space-y-2">
+                  <ul className="mt-2 space-y-2">
                     {technical.tradeoffs.map((item) => (
                       <li key={item} className="body-sm">
                         {item}
@@ -158,7 +170,7 @@ export function FeaturedProjects() {
               className="overflow-hidden rounded-[10px] border border-hairline"
             >
               <ProjectImage project={project} />
-              <div className="p-5">
+              <div className="p-6">
                 <p className="label-caps text-mint">{project.kind}</p>
                 <h3 className="title-lg mt-3">{project.name}</h3>
                 {project.company ? (

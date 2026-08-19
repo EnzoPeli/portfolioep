@@ -37,7 +37,7 @@ export function Button({
   const springY = useSpring(y, MAGNETIC_SPRING);
 
   const base =
-    "relative inline-flex h-11 items-center justify-center rounded-[6px] px-6 text-[13px] font-semibold tracking-[0.04em] transition-colors duration-200";
+    "relative inline-flex h-12 items-center justify-center rounded-[6px] px-7 text-[14px] font-semibold tracking-[0.04em] transition-colors duration-200";
 
   const styles =
     variant === "ghost"
