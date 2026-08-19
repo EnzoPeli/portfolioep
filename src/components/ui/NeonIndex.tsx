@@ -2,26 +2,26 @@
 
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
-import { useRevealVariants, VIEWPORT_ONCE } from "@/lib/motion";
+import { useNeonFlickerVariants, VIEWPORT_ONCE } from "@/lib/motion";
 
-export function Reveal({
+export function NeonIndex({
   children,
   className = "",
 }: {
   children: ReactNode;
   className?: string;
 }) {
-  const { item } = useRevealVariants();
+  const { variants } = useNeonFlickerVariants();
 
   return (
-    <motion.div
+    <motion.p
       className={`reveal ${className}`}
       initial="hidden"
       whileInView="visible"
       viewport={VIEWPORT_ONCE}
-      variants={item}
+      variants={variants}
     >
       {children}
-    </motion.div>
+    </motion.p>
   );
 }

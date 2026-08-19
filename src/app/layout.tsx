@@ -52,6 +52,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-canvas font-sans text-body">
+        <noscript>
+          <style>{`.reveal,.reveal *{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <AppShell>{children}</AppShell>
       </body>
     </html>

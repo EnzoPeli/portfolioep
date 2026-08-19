@@ -1,14 +1,17 @@
 "use client";
 
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/shared";
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { useRevealVariants, VIEWPORT_ONCE } from "@/lib/motion";
 
 export function Contact() {
   const { t } = useLanguage();
   const { contact } = t;
+  const { container, item } = useRevealVariants();
 
   return (
     <section id="contact" className="relative overflow-hidden border-t border-hairline">
@@ -18,44 +21,50 @@ export function Contact() {
           <p className="label-caps text-mint">{contact.kicker}</p>
           <h2 className="display-lg mt-4 max-w-3xl">{contact.heading}</h2>
           <p className="body-md mt-5 max-w-2xl text-body-strong">{contact.intro}</p>
+        </Reveal>
 
-          <ul className="mt-12 grid gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline sm:grid-cols-3">
-            <li className="bg-canvas p-6">
-              <p className="label-caps text-muted">{contact.emailLabel}</p>
-              <a href={`mailto:${site.email}`} className="mt-3 block text-[15px] text-ink hover:text-mint">
-                {site.email}
-              </a>
-            </li>
-            <li className="bg-canvas p-6">
-              <p className="label-caps text-muted">{contact.linkedinLabel}</p>
-              <a
-                href={site.linkedin}
-                className="mt-3 block text-[15px] text-ink hover:text-mint"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                linkedin.com/in/enzo-pelizzari
-              </a>
-            </li>
-            <li className="bg-canvas p-6">
-              <p className="label-caps text-muted">{contact.githubLabel}</p>
-              <a
-                href={site.github}
-                className="mt-3 block text-[15px] text-ink hover:text-mint"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                github.com/EnzoPeli
-              </a>
-            </li>
-          </ul>
+        <motion.ul
+          className="reveal mt-12 grid gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline sm:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+          variants={container}
+        >
+          <motion.li variants={item} className="bg-canvas p-6">
+            <p className="label-caps text-muted">{contact.emailLabel}</p>
+            <a href={`mailto:${site.email}`} className="mt-3 block text-[15px] text-ink hover:text-mint">
+              {site.email}
+            </a>
+          </motion.li>
+          <motion.li variants={item} className="bg-canvas p-6">
+            <p className="label-caps text-muted">{contact.linkedinLabel}</p>
+            <a
+              href={site.linkedin}
+              className="mt-3 block text-[15px] text-ink hover:text-mint"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/enzo-pelizzari
+            </a>
+          </motion.li>
+          <motion.li variants={item} className="bg-canvas p-6">
+            <p className="label-caps text-muted">{contact.githubLabel}</p>
+            <a
+              href={site.github}
+              className="mt-3 block text-[15px] text-ink hover:text-mint"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/EnzoPeli
+            </a>
+          </motion.li>
+        </motion.ul>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button href={`mailto:${site.email}`}>{t.hero.secondaryCta}</Button>
-            <Button href={site.cv.href} download={site.cv.filename} variant="ghost">
-              {contact.cvCta}
-            </Button>
-          </div>
+        <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Button href={`mailto:${site.email}`}>{t.hero.secondaryCta}</Button>
+          <Button href={site.cv.href} download={site.cv.filename} variant="ghost">
+            {contact.cvCta}
+          </Button>
         </Reveal>
       </Container>
     </section>

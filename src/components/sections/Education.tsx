@@ -1,13 +1,16 @@
 "use client";
 
+import { motion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { site } from "@/content/shared";
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { useRevealVariants, VIEWPORT_ONCE } from "@/lib/motion";
 
 export function Education() {
   const { education } = useLanguage().t;
+  const { container, item } = useRevealVariants();
 
   return (
     <section id="education" className="border-t border-hairline py-20 md:py-24">
@@ -36,15 +39,21 @@ export function Education() {
                 kicker={education.languagesKicker}
                 heading={education.languagesHeading}
               />
-              <div className="mt-10 grid gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline">
-                {education.languages.map((item) => (
-                  <article key={item.name} className="bg-canvas p-6">
-                    <p className="display-sm">{item.name}</p>
-                    <p className="label-caps mt-3 text-mint">{item.level}</p>
-                    {item.note ? <p className="body-sm mt-4 max-w-md">{item.note}</p> : null}
-                  </article>
+              <motion.div
+                className="reveal mt-10 grid gap-px overflow-hidden rounded-[10px] border border-hairline bg-hairline"
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT_ONCE}
+                variants={container}
+              >
+                {education.languages.map((lang) => (
+                  <motion.article key={lang.name} variants={item} className="bg-canvas p-6">
+                    <p className="display-sm">{lang.name}</p>
+                    <p className="label-caps mt-3 text-mint">{lang.level}</p>
+                    {lang.note ? <p className="body-sm mt-4 max-w-md">{lang.note}</p> : null}
+                  </motion.article>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </Reveal>

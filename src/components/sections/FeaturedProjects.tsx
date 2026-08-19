@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "motion/react";
 import type { Project } from "@/content/types";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { useRevealVariants, VIEWPORT_ONCE } from "@/lib/motion";
 
 function ProjectImage({ project }: { project: Project }) {
   if (!project.image) return null;
@@ -45,6 +47,7 @@ export function FeaturedProjects() {
   const featured = projects.items.find((item) => item.tier === 1);
   const technical = projects.items.find((item) => item.tier === 2);
   const clients = projects.items.filter((item) => item.tier === 3);
+  const { container: gridContainer, item: gridItem } = useRevealVariants();
 
   if (!featured || !technical) return null;
 
@@ -57,7 +60,9 @@ export function FeaturedProjects() {
             heading={projects.heading}
             intro={projects.intro}
           />
+        </Reveal>
 
+        <Reveal>
           <article className="mt-12 overflow-hidden rounded-[10px] border border-hairline">
             <div className="p-6 md:p-8">
               <p className="label-caps text-mint">{featured.kind}</p>
@@ -80,7 +85,9 @@ export function FeaturedProjects() {
               ) : null}
             </div>
           </article>
+        </Reveal>
 
+        <Reveal>
           <article className="mt-6 overflow-hidden rounded-[10px] border border-hairline bg-canvas">
             <div className="p-6 md:p-8">
               <div className="flex flex-wrap items-center gap-3">
@@ -135,30 +142,37 @@ export function FeaturedProjects() {
               ) : null}
             </div>
           </article>
-
-          <div className="mt-6 grid gap-6 lg:grid-cols-3">
-            {clients.map((project) => (
-              <article
-                key={project.id}
-                className="overflow-hidden rounded-[10px] border border-hairline"
-              >
-                <ProjectImage project={project} />
-                <div className="p-5">
-                  <p className="label-caps text-mint">{project.kind}</p>
-                  <h3 className="title-lg mt-3">{project.name}</h3>
-                  {project.company ? (
-                    <p className="caption mt-1">{project.company}</p>
-                  ) : null}
-                  <p className="body-sm mt-4">{project.summary}</p>
-                  {project.role ? (
-                    <p className="caption mt-3">{project.role}</p>
-                  ) : null}
-                  <TechList items={project.technologies} />
-                </div>
-              </article>
-            ))}
-          </div>
         </Reveal>
+
+        <motion.div
+          className="reveal mt-6 grid gap-6 lg:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+          variants={gridContainer}
+        >
+          {clients.map((project) => (
+            <motion.article
+              key={project.id}
+              variants={gridItem}
+              className="overflow-hidden rounded-[10px] border border-hairline"
+            >
+              <ProjectImage project={project} />
+              <div className="p-5">
+                <p className="label-caps text-mint">{project.kind}</p>
+                <h3 className="title-lg mt-3">{project.name}</h3>
+                {project.company ? (
+                  <p className="caption mt-1">{project.company}</p>
+                ) : null}
+                <p className="body-sm mt-4">{project.summary}</p>
+                {project.role ? (
+                  <p className="caption mt-3">{project.role}</p>
+                ) : null}
+                <TechList items={project.technologies} />
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
       </Container>
     </section>
   );
